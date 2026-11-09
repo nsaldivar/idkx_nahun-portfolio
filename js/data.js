@@ -13,13 +13,54 @@ export const tech = (name, c = "gen") => ({ name, c: C[c] });
 export const heroStack = [tech("Python", "py"), tech("SQL Server", "sql"), tech("JavaScript", "js"), tech("Power BI"), tech("Git", "git"), tech("HTML/CSS", "html")];
 
 export const projects = [
-  
+  {
+    id: "unifood",
+    es: { tag: "Web · Microservicios", title: "UniFood", desc: "Sistema web de reserva anticipada de menús universitarios, del curso de Cloud Computing. Desarrollé el microservicio de validación universitaria con API REST y SQLite." },
+    en: { tag: "Web · Microservices", title: "UniFood", desc: "Web system for pre-booking university lunch menus, built for the Cloud Computing course. I developed the university validation microservice with a REST API and SQLite." },
+    stack: [tech("Node.js", "node"), tech("SQLite"), tech("API REST"), tech("Microservicios")],
+    href: "https://github.com/nsaldivar/UniFood_Microservicios",
+  },
+  {
+    id: "monolito-microservicios",
+    es: { tag: "Arquitectura · CI/CD", title: "Monolito vs microservicios", desc: "Repositorio con una versión monolítica y otra con microservicios, flujos de CI/CD con GitHub Actions y evidencias del trabajo." },
+    en: { tag: "Architecture · CI/CD", title: "Monolith vs microservices", desc: "Repository with a monolithic version and a microservices version, CI/CD workflows with GitHub Actions and documented evidence." },
+    stack: [tech("Microservicios"), tech("GitHub Actions"), tech("Git", "git")],
+    href: "https://github.com/nsaldivar/proyecto-monolito-microservicios",
+  },
   {
     id: "agendamiento",
     es: { tag: "Web · Full stack", title: "Sistema Web de Agendamiento y Orientación al Cliente", desc: "Proyecto del curso Taller de Proyectos 2: sistema web para agendar citas y orientar a clientes." },
     en: { tag: "Web · Full stack", title: "Web Scheduling & Customer Guidance System", desc: "Course project for Taller de Proyectos 2: a web system to book appointments and guide customers." },
     stack: [tech("Web"), tech("SQL", "sql"), tech("Git", "git")],
-    href: "https://github.com/nsaldivar", 
+    href: "https://github.com/nsaldivar",
+  },
+  {
+    id: "service-desk",
+    es: { tag: "Web · Gestión de TI", title: "Service Desk de TI (PA3)", desc: "" },
+    en: { tag: "Web · IT management", title: "IT Service Desk (PA3)", desc: "" },
+    stack: [tech("HTML", "html")],
+    href: "https://github.com/nsaldivar/PA3_Service-desk_TI",
+  },
+  {
+    id: "gestion-ti",
+    es: { tag: "Web · Gestión de TI", title: "Gestión de TI (PA1)", desc: "" },
+    en: { tag: "Web · IT management", title: "IT Management (PA1)", desc: "" },
+    stack: [tech("HTML", "html")],
+    href: "https://github.com/nsaldivar/PA1_GESTION_TI",
+  },
+  {
+    id: "laboratorio-web",
+    es: { tag: "Web · Laboratorio", title: "Laboratorio web", desc: "" },
+    en: { tag: "Web · Lab", title: "Web lab", desc: "" },
+    stack: [tech("HTML", "html")],
+    href: "https://github.com/nsaldivar/laboratorio-web",
+  },
+  {
+    id: "algebra-relacional",
+    es: { tag: "Bases de datos", title: "Álgebra relacional", desc: "" },
+    en: { tag: "Databases", title: "Relational algebra", desc: "" },
+    stack: [],
+    href: "https://github.com/nsaldivar/Algebra_Relacional",
   },
 ];
 

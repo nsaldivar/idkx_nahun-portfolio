@@ -119,7 +119,7 @@ function runIntro(robot) {
   const intro = $("#intro"), pct = $("#introPct"), bar = $("#introBar");
   document.body.classList.add("locked");
   let done = false, start = performance.now();
-  const DURATION = 7000;
+  const DURATION = 5000;
   const finish = () => {
     if (done) return; done = true;
     intro.classList.add("done"); $("#introBg")?.classList.add("done");

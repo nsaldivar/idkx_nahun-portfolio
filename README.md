@@ -1,9 +1,7 @@
 # Portafolio web · Nahun Saldivar
 
 Mi portafolio personal: estudiante de Ingeniería de Sistemas e Informática
-(Universidad Continental, Cusco, Perú).
-
-🔗 **Demo:** https://nsaldivar.vercel.app
+(Universidad Continental)
 
 ## Qué incluye
 - Intro animada con contador y botón para saltarla

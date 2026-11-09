@@ -1,6 +1,6 @@
 export const profile = {
   name: "Nahun Saldivar",
-  domain: "nsaldivar.vercel.app",           
+  domain: "nsaldivarvercelapp.vercel.app",           
   email: "nahun987654321@gmail.com",
   github: "https://github.com/nsaldivar",
   linkedin: "https://www.linkedin.com/in/nahunsaldivar/",

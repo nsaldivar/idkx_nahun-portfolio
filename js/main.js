@@ -119,15 +119,15 @@ function runIntro(robot) {
   const intro = $("#intro"), pct = $("#introPct"), bar = $("#introBar");
   document.body.classList.add("locked");
   let done = false, start = performance.now();
-  const DURATION = 3800;
+  const DURATION = 7000;
   const finish = () => {
     if (done) return; done = true;
-    intro.classList.add("done");
+    intro.classList.add("done"); $("#introBg")?.classList.add("done");
     document.body.classList.remove("locked");
     document.body.classList.add("ready");
     robot?.setMode("widget");
     sessionStorage.setItem("introSeen", "1");
-    setTimeout(() => intro.remove(), 1100);
+    setTimeout(() => { intro.remove(); $("#introBg")?.remove(); }, 1100);
   };
   const step = (now) => {
     if (done) return;
@@ -146,5 +146,5 @@ render();
 let robot = null;
 try { robot = initRobot($("#robot")); } catch (err) { console.warn("WebGL no disponible:", err); }
 if (sessionStorage.getItem("introSeen")) {
-  $("#intro").remove(); document.body.classList.add("ready"); robot?.setMode("widget", true);
+  $("#intro").remove(); $("#introBg").remove(); document.body.classList.add("ready"); robot?.setMode("widget", true);
 } else runIntro(robot);

@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nahun Saldivar · Ingeniería de Sistemas</title>
+  <meta name="description" content="Portafolio de Nahun Saldivar: estudiante de Ingeniería de Sistemas e Informática, desarrollo web y microservicios." />
+  <meta name="theme-color" content="#05060b" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%236366f1'/%3E%3Ctext x='16' y='21' font-size='13' font-family='sans-serif' font-weight='700' fill='white' text-anchor='middle'%3ENS%3C/text%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <script type="importmap">
+    { "imports": { "three": "https://unpkg.com/three@0.160.0/build/three.module.js" } }
+  </script>
+</head>
+<body>
+  <a class="skip" href="#main" data-i18n="skip">Saltar al contenido</a>
+
+  <div class="bg" aria-hidden="true"><i class="orb o1"></i><i class="orb o2"></i><i class="orb o3"></i><i class="grid"></i></div>
+
+  <canvas id="robot" aria-hidden="true"></canvas>
+
+  <div id="intro" role="dialog" aria-label="Intro">
+    <div class="intro-copy">
+      <div class="intro-icons">
+        <span><svg viewBox="0 0 24 24"><path d="m16 18 6-6-6-6M8 6l-6 6 6 6"/></svg></span>
+        <span><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></span>
+        <span><svg viewBox="0 0 24 24"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg></span>
+      </div>
+      <p class="intro-eyebrow" data-i18n="introHello">Bienvenido a mi</p>
+      <h1 class="intro-title">Portafolio <span class="grad">Web</span></h1>
+      <p class="intro-url"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20 15 15 0 0 1 0-20"/></svg><span id="introUrl">nsaldivar.vercel.app</span></p>
+      <div class="intro-progress"><b id="introPct">0%</b><i><u id="introBar"></u></i></div>
+    </div>
+    <button id="skipIntro" class="skip-intro" data-i18n="skipIntro">Saltar intro</button>
+  </div>
+
+  <header class="nav-wrap">
+    <nav class="nav" aria-label="Principal">
+      <a href="#top" class="logo" aria-label="Inicio">NS</a>
+      <a href="#top" data-link="top" class="active" data-i18n="nav.home">Inicio</a>
+      <a href="#about" data-link="about" data-i18n="nav.about">Sobre mí</a>
+      <a href="#projects" data-link="projects" data-i18n="nav.projects">Proyectos</a>
+      <a href="#experience" data-link="experience" data-i18n="nav.experience">Experiencia</a>
+      <span class="sep"></span>
+      <div class="lang" role="group" aria-label="Idioma"><button data-lang="es" class="on">ES</button><button data-lang="en">EN</button></div>
+      <a href="#contact" class="cta" data-i18n="nav.contact">Contacto</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section id="top" class="hero wrap">
+      <div class="hero-copy">
+        <p class="badge" data-reveal><i class="dot"></i><span data-i18n="hero.available">Disponible para nuevas oportunidades</span></p>
+        <h1 class="hero-name" data-reveal style="--d:.08s">Nahun<br />Saldivar</h1>
+        <p class="hero-role grad" data-reveal style="--d:.16s" data-i18n="hero.role">Ingeniería de Sistemas e Informática</p>
+        <p class="hero-lead" data-reveal style="--d:.24s" data-i18n-html="hero.lead"></p>
+        <div class="hero-actions" data-reveal style="--d:.32s">
+          <a class="btn primary" href="#projects"><span data-i18n="hero.projects">Ver proyectos</span><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="btn ghost" href="cv/cv-nahun-saldivar.pdf" download><span data-i18n="hero.cv">Descargar CV</span><svg viewBox="0 0 24 24"><path d="M12 4v12m-5-5 5 5 5-5M5 20h14"/></svg></a>
+        </div>
+        <div class="socials" data-reveal style="--d:.4s">
+          <a id="lnkGithub" href="#" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg></a>
+          <a id="lnkLinkedin" href="#" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2zM4 2a2 2 0 1 1 0 4 2 2 0 0 1 0-4z"/></svg></a>
+          <button id="copyEmail" class="mailchip"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><span data-i18n="hero.copyEmail">Copiar email</span></button>
+        </div>
+      </div>
+
+      <div class="bento">
+        <a class="card featured" href="#projects" data-reveal style="--d:.2s">
+          <span class="mono tag" data-i18n="hero.featured">Proyecto destacado</span>
+          <h3 id="featTitle"></h3>
+          <p id="featDesc"></p>
+          <span class="more"><span data-i18n="hero.case">Ver caso de estudio</span> ↗</span>
+          <div class="mock" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+        </a>
+        <div class="card stack" data-reveal style="--d:.3s">
+          <span class="mono tag" data-i18n="hero.stack">Stack principal</span>
+          <div class="chips" id="heroStack"></div>
+        </div>
+        <div class="card study" data-reveal style="--d:.38s">
+          <span class="ico"><svg viewBox="0 0 24 24"><path d="m2 9 10-5 10 5-10 5zM6 11.5V16c0 1.5 3 3 6 3s6-1.5 6-3v-4.5"/></svg></span>
+          <h4 data-i18n="hero.degree">Ingeniería de Sistemas e Informática</h4>
+          <p class="status"><i class="dot"></i><span data-i18n="hero.degreeStatus">En curso · Universidad Continental</span></p>
+        </div>
+        <div class="card clock" data-reveal style="--d:.46s">
+          <span class="mono tag" data-i18n="hero.localTime">Mi hora local</span>
+          <b id="clock" class="time">--:--</b>
+          <p data-i18n="hero.location">Cusco · Perú · remoto o híbrido</p>
+        </div>
+      </div>
+      <a href="#about" class="scroll-cue" aria-label="Desliza"><i></i><span data-i18n="hero.scroll">Desliza</span></a>
+    </section>
+
+    <section id="about" class="section wrap">
+      <p class="eyebrow mono" data-reveal><i class="dot"></i><span data-i18n="about.eyebrow">Sobre mí</span></p>
+      <div class="row-head">
+        <h2 data-reveal data-i18n-html="about.title"></h2>
+        <a class="link" href="#contact" data-reveal data-i18n-html="about.link"></a>
+      </div>
+      <div class="about-grid">
+        <div class="about-copy">
+          <p class="lead" data-reveal data-i18n-html="about.p1"></p>
+          <p data-reveal data-i18n-html="about.p2"></p>
+          <p data-reveal data-i18n-html="about.p3"></p>
+        </div>
+        <div class="about-cards" id="aboutCards"></div>
+      </div>
+    </section>
+
+    <section id="projects" class="section wrap">
+      <p class="eyebrow mono" data-reveal><i class="dot"></i><span data-i18n="projects.eyebrow">Proyectos</span></p>
+      <div class="row-head"><h2 data-reveal data-i18n-html="projects.title"></h2></div>
+      <div class="projects" id="projectList"></div>
+    </section>
+
+    <section id="experience" class="section wrap">
+      <p class="eyebrow mono" data-reveal><i class="dot"></i><span data-i18n="exp.eyebrow">Experiencia</span></p>
+      <div class="row-head"><h2 data-reveal data-i18n-html="exp.title"></h2></div>
+      <ol class="timeline" id="timeline"></ol>
+    </section>
+
+    <section id="skills" class="section wrap">
+      <p class="eyebrow mono" data-reveal><i class="dot"></i><span data-i18n="skills.eyebrow">Habilidades</span></p>
+      <div class="row-head">
+        <h2 data-reveal data-i18n-html="skills.title"></h2>
+        <ul class="legend" data-reveal>
+          <li><i class="lv l3"></i><span data-i18n="skills.daily">Uso a diario</span></li>
+          <li><i class="lv l2"></i><span data-i18n="skills.exp">Con experiencia</span></li>
+          <li><i class="lv l1"></i><span data-i18n="skills.learning">Aprendiendo</span></li>
+        </ul>
+      </div>
+      <div class="skills" id="skillGroups"></div>
+    </section>
+
+    <section id="education" class="section wrap">
+      <p class="eyebrow mono" data-reveal><i class="dot"></i><span data-i18n="edu.eyebrow">Educación</span></p>
+      <div class="row-head"><h2 data-reveal data-i18n-html="edu.title"></h2></div>
+      <div class="edu" id="eduList"></div>
+    </section>
+
+    <section id="certs" class="section wrap">
+      <p class="eyebrow mono" data-reveal><i class="dot"></i><span data-i18n="cert.eyebrow">Certificaciones</span></p>
+      <div class="row-head"><h2 data-reveal data-i18n-html="cert.title"></h2></div>
+      <div class="edu" id="certList"></div>
+    </section>
+
+    <section id="contact" class="section wrap">
+      <p class="eyebrow mono" data-reveal><i class="dot"></i><span data-i18n="contact.eyebrow">Contacto</span></p>
+      <div class="contact card" data-reveal>
+        <div class="contact-copy">
+          <h2 data-i18n-html="contact.title"></h2>
+          <p data-i18n="contact.text">Escríbeme y te respondo en menos de 24 horas.</p>
+          <button class="mailbig" id="copyEmail2"><span id="emailText"></span><em data-i18n="contact.copy">clic para copiar</em></button>
+          <div class="socials"><a id="lnkGithub2" href="#" target="_blank" rel="noopener">GitHub</a><a id="lnkLinkedin2" href="#" target="_blank" rel="noopener">LinkedIn</a></div>
+        </div>
+        <form id="form" class="form" novalidate>
+          <label><span data-i18n="contact.name">Nombre</span><input name="name" required autocomplete="name" /></label>
+          <label><span data-i18n="contact.email">Email</span><input name="email" type="email" required autocomplete="email" /></label>
+          <label><span data-i18n="contact.msg">Mensaje</span><textarea name="msg" rows="4" required></textarea></label>
+          <button class="btn primary" type="submit"><span data-i18n="contact.send">Enviar mensaje</span><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+          <p class="form-note" id="formNote" role="status"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer wrap">
+    <div class="foot-top">
+      <div><a href="#top" class="logo">NS</a><p data-i18n="footer.tag">Estudiante de Ingeniería de Sistemas. Este sitio está hecho con HTML, CSS, JavaScript y un robot 3D en Three.js.</p></div>
+      <div><h5 class="mono" data-i18n="footer.nav">Navegación</h5><a href="#about" data-i18n="nav.about">Sobre mí</a><a href="#projects" data-i18n="nav.projects">Proyectos</a><a href="#experience" data-i18n="nav.experience">Experiencia</a></div>
+      <div><h5 class="mono" data-i18n="footer.social">Social</h5><a id="lnkGithub3" href="#" target="_blank" rel="noopener">GitHub</a><a id="lnkLinkedin3" href="#" target="_blank" rel="noopener">LinkedIn</a><a href="#contact">Email</a></div>
+    </div>
+    <p class="copy">© <span id="year"></span> Nahun Saldivar · <span data-i18n="footer.rights">Todos los derechos reservados.</span></p>
+  </footer>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

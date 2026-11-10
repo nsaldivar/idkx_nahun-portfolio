@@ -22,19 +22,30 @@ function render() {
 
   const f = projects[0][lang];
   $("#featTitle").textContent = f.title;
-  $("#featDesc").textContent = f.desc;
+  $("#featDesc").textContent = f.feat || f.desc;
+  const fl = $("#featLink"), fm = $("#featMock"), fp = projects[0];
+  if (fl && fp.href.startsWith("http")) { fl.href = fp.href; fl.target = "_blank"; fl.rel = "noopener"; }
+  if (fm && fp.image) {
+    fm.innerHTML = `<img src="${fp.image}" alt="${f.title}" loading="eager">`;
+    fm.classList.add("has-img");
+    fm.firstElementChild.onerror = () => { fm.classList.remove("has-img"); fm.innerHTML = "<i></i><i></i><i></i>"; };
+  }
   $("#heroStack").innerHTML = heroStack.map(chip).join("");
 
   $("#aboutCards").innerHTML = t["about.cards"].map(([h, p], i) =>
     `<div class="acard" data-reveal style="--d:${i * .1}s"><span class="ico">${icons[i]}</span><div><h4>${h}</h4><p>${p}</p></div></div>`).join("");
 
+  const ext = (u) => u.startsWith("http") ? 'target="_blank" rel="noopener"' : "";
   $("#projectList").innerHTML = projects.map((p, i) => `
-    <a class="proj" href="${p.href}" ${p.href.startsWith("http") ? 'target="_blank" rel="noopener"' : ""} data-reveal style="--d:${i * .1}s">
+    <article class="proj" data-reveal style="--d:${i * .1}s">
       <span class="mono tag">${p[lang].tag}</span>
       <h3>${p[lang].title}</h3><p>${p[lang].desc}</p>
       <div class="chips">${p.stack.map(chip).join("")}</div>
-      <span class="go">${t["projects.go"]} ${arrow}</span>
-    </a>`).join("");
+      <div class="links">
+        <a class="go" href="${p.href}" ${ext(p.href)}>${p.repo ? t["projects.demo"] : t["projects.go"]} ${arrow}</a>
+        ${p.repo ? `<a class="go alt" href="${p.repo}" ${ext(p.repo)}>${t["projects.code"]} ${arrow}</a>` : ""}
+      </div>
+    </article>`).join("");
 
   $("#timeline").innerHTML = experience.map((e, i) => `
     <li class="tl ${e.now ? "now" : ""}" data-reveal style="--d:${i * .08}s">
